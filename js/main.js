@@ -18,7 +18,7 @@ let viewTable = function (data) {
 
 let weatherFunc = function(el,i){
     $.ajax({
-        url:'/php/data.php',
+        url:'php/data.php',
         type:"POST",
         data: JSON.stringify({type:'parse', url:el.url}),
         success:(data)=>{
