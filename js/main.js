@@ -36,3 +36,22 @@ let weatherFunc = function(el,i){
     });
 };
 
+let weatherFuncA = function(el,i){
+    $.ajax({
+        url:'../php/data.php',
+        type:"POST",
+        data: JSON.stringify({type:'parse', url:el.url}),
+        success:(data)=>{
+            weather.city[i] =el.city;
+            let page = $(data).find('.temperature');
+            weather.temp[i]=page[0].title;
+            page = $(data).find('.note')
+            weather.atmo[i]=page[0].innerText
+            page = $(data).find('.wind')
+            weather.wind[i]=page[0].title
+        },
+        error:()=>{
+
+        }
+    });
+};
