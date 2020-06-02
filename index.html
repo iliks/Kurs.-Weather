@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Weather</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">Weather</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container" style="display: flex;justify-content: center">
+    <table class="text table table-borderless">
+        <thead>
+        <tr>
+            <th scope="col">Город</th>
+            <th scope="col">Температура</th>
+            <th scope="col">Атмосферные явления</th>
+            <th scope="col">Ветер</th>
+        </tr>
+        </thead>
+        <tbody id ="content">
+        </tbody>
+    </table>
+</div>
+<script>
+    let getData = function () {
+        $.get('php/data.php', viewTable)
+    }
+    setInterval(getData,2000)
+</script>
+</body>
+</html>
