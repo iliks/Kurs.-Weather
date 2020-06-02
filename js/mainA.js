@@ -28,7 +28,7 @@ let addCity = function(){
     let city = document.getElementById('cityName').value;
     let url = document.getElementById('cityURL').value;
     $.ajax({
-        url:'data.php',
+        url:'../php/data.php',
         type:'POST',
         data:JSON.stringify({type:'add', name:city, url:url}),
         success:()=>{
