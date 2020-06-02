@@ -12,7 +12,7 @@ let viewTableA =  function (data) {
 
 let deleteCity = function(id){
     $.ajax({
-        url:'data.php',
+        url:'../php/data.php',
         type:'DELETE',
         data:JSON.stringify({'id':id}),
         success:()=>{
