@@ -3,7 +3,7 @@ let viewTableA =  function (data) {
     let html ='';
     let i =0;
     data.forEach((el)=>{
-        weatherFunc(el,i)
+        weatherFuncA(el,i)
         html+=`<tr><td>${weather.city[i]}</td><td class="table-warning">${weather.temp[i]}</td><td class="table-success">${weather.atmo[i]}</td><td class="table-primary">${weather.wind[i]}</td><td><a href="#"  class="btn btn-danger" onclick="deleteCity(${i})">delete</a></td></tr>`
         i++
     });
@@ -12,7 +12,7 @@ let viewTableA =  function (data) {
 
 let deleteCity = function(id){
     $.ajax({
-        url:'data.php',
+        url:'../php/data.php',
         type:'DELETE',
         data:JSON.stringify({'id':id}),
         success:()=>{
@@ -28,7 +28,7 @@ let addCity = function(){
     let city = document.getElementById('cityName').value;
     let url = document.getElementById('cityURL').value;
     $.ajax({
-        url:'data.php',
+        url:'../php/data.php',
         type:'POST',
         data:JSON.stringify({type:'add', name:city, url:url}),
         success:()=>{
